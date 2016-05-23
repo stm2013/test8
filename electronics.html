@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Electronics | swagNano</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="stiling.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.min.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <!-- Logo -->
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="index.html">swagNano</a>
+        </div>
+
+        <!-- Menu -->
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Home</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="pronano.html">proNano</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Technology <span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="overview.html">Overview</a></li>
+                        <li><a href="electronics.html">Electronics</a></li>
+                        <li><a href="scan_head.html">Scan head</a></li>
+                        <li><a href="vibration.html">Vibration isolation</a></li>
+                        <li><a href="adjustment.html">Course and fine adjustment</a></li>
+                        <li><a href="software.html">Software</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="support.html">Support</a></li> <!--  https://www.nanosurf.com/en/support -->
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 col-sm-9">
+            <div class="dropdown pull-right visible-xs">
+                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+                    Contents
+                    <span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#scanner">Scanner</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#amplification">Amplification
+                        system</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#tipbias">Tip bias</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#stepper">Stepper motor</a></li>
+
+                    <!--<li role="presentation" class="divider"></li>-->
+                </ul>
+
+            </div>
+            <div class="jumbotron">
+                <h1>Electronics</h1>
+                <p>
+                    High demands are put on the electronics if atomic resolution is to be established. A reliable
+                    feedback controller and a high resolution actuating system is of high importance in order to scan
+                    the sample with good accuracy.
+                </p>
+            </div>
+
+            <div class="well" id="scanner">
+                <h3><b>Scanner</b></h3>
+                <p>To control the tip, we use a piezo element divided into four quadrants (see <a href="overview.html">overview</a>).
+                    Each quadrant is
+                    connected to a Digital-to-Analog Converter (DAC), while the brass piece of the piezo is connected to
+                    ground (in this case, the body of the microscope). By applying voltages to the quadrants, we can
+                    scan the tip. The more accurately we can apply a voltage, the higher our resolution will be. In his
+                    home-built STM, Dan Berard claims the to achieve atomic resolution, the DACs used have to have a
+                    resolution of at least 20 bit (källa). Therefore, we used four Texas Instrument DAC1220E (länk till
+                    datablad), a 20 bit, high precision DAC. The DACs are by far the most expensive part of the
+                    microscope. At first, we tried to use a breadboard to connect the DACs. However, the output signal
+                    was very unstable and noisy, probably due to all the stray capacitance in the breadboard, which
+                    causes more capacitive coupling. Because of this, we had to design and order a printed circuit board
+                    (PCB). (länk till filerna). The PCB was designed in the open-source program KiCAD and followed the
+                    design recommendations found in the DAC’s datasheet. The DACs were controlled by the Arduino using
+                    what is called Serial Peripheral Interface, or SPI for short. The PCB with and without components
+                    can be seen in <a href="#fig1">figure 1</a>.
+                </p>
+
+                <figure class="centerimage" id="fig1">
+                    <img src="images/pcb_empty.jpg" class="centerimage img-responsive">
+                    <figcaption class="centertext"><i>Figure 1: Empty pcb-card</i></figcaption>
+                    <br>
+                </figure>
+            </div>
+
+            <div class="well" id="amplification">
+                <h3><b>Amplification system</b></h3>
+                <p>To amplify the tunneling current, which is on the order of nanoampere or less, we used the op amp
+                    Texas Instrument OPA637, configured as a transimpedance amplifier (current to voltage), see <a
+                            href="#fig2">figure
+                        2</a>. The parts were assembled on a PCB, designed by <a href="#">Dan Berard</a>. The most
+                    important
+                    characteristic when choosing an op amp for this kind of application is the input bias current, which
+                    tells you how much the op amp diverges from one of the rules for an ideal op amp; that no current
+                    flows into the op amp’s input. In other words, it tells you how much current the amplifier will
+                    “steal” from the tunneling current. The OPA637 has an input bias current in the order of 1
+                    picoampere, which is extremely low. So if, for instance, if we have a tunneling current of 1 nA, 1
+                    pA will be lost to the negative input pin of the amplifier, while the rest, 0,999 nA will be forced
+                    through the 100 MΩ seen in figure x, causing a voltage drop of 99,9 mV, which we then can measure.
+                    To measure the voltage, we use the Arduino’s built-in Analog-to-Digital Converter (ADC), which has a
+                    resolution of 12 bit. The minimize the noise, the amplifier is placed in a grounded metal cage and
+                    we use a coaxial cable between the sample and the amplifier.
+                </p>
+
+                <figure class="centerimage" id="fig2">
+                    <img src="images/op_amp.jpg" class="centerfigure img-responsive">
+                    <figcaption class="centertext"><i>Figure 2: transimpedance amplifier</i></figcaption>
+                    <br>
+                </figure>
+
+                <p>
+                    Since we use a positive bias on the the tip and the amplifier is connected to the sample, the
+                    current will flow towards the amplifier’s negative input which is virtual ground, causing a negative
+                    output voltage. However, the Arduino can only measure voltages between -0,5 V and 3,8 V, and
+                    voltages outside this range could damage the input pin or even the whole board. To resolve this, we
+                    used a regular op amp (in our case Texas Instruments LM324) in an inverting voltage-follower
+                    configuration, see <a href="#fig3">figure 3</a>. We also used a 3,3 V Zener diode between the input
+                    pin and ground to
+                    protect the pin from over-voltages, since the amplifier is able to supply up to 15 V.
+                </p>
+
+                <p>
+                    Given the huge amplification we are dealing with (108 V/A), measures had to be taken to reduce
+                    noise. The amplifier was placed in an aluminium cage, which was wrapped i aluminium foil and
+                    grounded. The cable used between the sample and the amplifier was a coaxial cable, with the outer
+                    shielding layer grounded to minimize noise pick-up. It is also vital that the cable is made as short
+                    as possible. When we tested the amplifier without these measures, the 50 Hz noise coming from all
+                    the power cables caused so much noise that the amplifier reached its maximum value of 15 Vpk.
+                    However, after our efforts, the noise was less than 200 mVppk, a value we were very pleased with.
+                </p>
+
+                <figure class="centerimage" id="fig3">
+                    <img src="images/op_amp_simple.jpg" class="centerimage img-responsive">
+                    <figcaption class="centertext"><i>Figure 3: operational amplifier</i></figcaption>
+                    <br>
+                </figure>
+            </div>
+
+            <div class="well" id="tipbias">
+                <h3><b>Tip bias</b></h3>
+                <p>The tip bias does not have to be nearly as accurate, only stable, as the bias on the piezo.
+                    Therefore, we could simply use our Arduino Zero’s built-in 10 bit DAC to set it. The Arduino can
+                    only output voltages between 0 V and 3,3 V, hence we can only have a postive bias.
+                </p>
+            </div>
+
+            <div class="well" id="stepper">
+                <h3><b>Stepper motor</b></h3>
+                <p>For coarse adjustment, we used a bipolar stepper motor with 4096 steps per revolution, see Mechanics.
+                    The stepper motor is connected to an ar (datasheet), an IC module which consists of seven Darlington
+                    transistors (although we only use four), transistors with high amplification that can handle high
+                    voltages and currents. The ULN2003 is in turn connected to four digital outputs from the Arduino, so
+                    that when when a voltage pulse is sent from one of the outputs to the ULN2003, the current is
+                    amplified and passed to the motor. By sending voltages in the right order to the four electromagnets
+                    in the motor, we can make it turn just the right amount of steps.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- sidebar -->
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas">
+            <div class="list-group hidden-xs">
+                <a href="#" class="list-group-item active">Contents</a>
+                <a href="#scanner" class="list-group-item">Scanner</a>
+                <a href="#amplification" class="list-group-item">Amplification system</a>
+                <a href="#tipbias" class="list-group-item">Tip bias</a>
+                <a href="#stepper" class="list-group-item">Stepper motor</a>
+            </div>
+            <div class="well hidden-xs">
+                <p><b>Contact us</b>:<br>
+                    Sölvegatan 14<br>
+                    SE-223 63 Lund <br>
+                    Sweden<br>
+                    tna13asa@student.lu.se</p>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <footer>
+        <p>&copy; 2016 swagNano, Inc.</p>
+    </footer>
+</div>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Overview | swagNano</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="stiling.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.min.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="index.html">swagNano</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Home</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="pronano.html">proNano</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Technology <span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="overview.html">Overview</a></li>
+                        <li><a href="electronics.html">Electronics</a></li>
+                        <li><a href="scan_head.html">Scan head</a></li>
+                        <li><a href="vibration.html">Vibration isolation</a></li>
+                        <li><a href="adjustment.html">Coarse approach</a></li>
+                        <li><a href="software.html">Software</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="support.html">Support</a></li> <!--  https://www.nanosurf.com/en/support -->
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 col-sm-9">
+            <div class="dropdown pull-right visible-xs">
+                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+                    Contents
+                    <span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#introduction">Introduction</a></li>
+                    <!--<li role="presentation"><a role="menuitem" tabindex="-1" href="#approach">Coarse and fine-->
+                        <!--approach</a></li>-->
+                    <!--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Amplification system</a></li>-->
+                    <!--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Bias setup</a></li>-->
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#references">References</a></li>
+                    <!--<li role="presentation" class="divider"></li>-->
+                </ul>
+            </div>
+
+            <div class="jumbotron">
+                <h1>Overview</h1>
+                <p>
+                    This section serves as a very short introduction to the scanning tunneling microscope;
+                    its working
+                    principles, possibilities and constraints.
+                </p>
+            </div>
+
+            <div class="well" id="introduction">
+                <h3><b>Introduction </b></h3>
+                <p>
+                    The scanning tunneling microscope was invented by Gerd Binning and Heinrich Rohrer in 1981 in IBM,
+                    for which they received the Nobel Prize in physics for in 1986. The tool is a powerful microscopic
+                    technique capable of achieving sub-nanometer resolution of surfaces and is today routinely used by
+                    scientists to visualize and image surface topographies based on the local density of states concept
+                    <a href="#references">[1]</a>. By using a probe with an atomically sharp tip and an applied bias, a
+                    highly sensitive tunneling
+                    current can be conducted into the sample. Consequently, scanning the surface and measuring the
+                    changes in tunneling current results in an image representing the surfaces electronic environment
+                    <a href="#references">[2]</a>. This enables researchers to obtain a better understanding about their
+                    subject on a molecular
+                    level. One advantage over other characterization methods is its great versatility as it can operate
+                    in air, vacuum and liquids under non ambient conditions.
+                    However, one major disadvantage is the use of highly specialized equipment that is fragile and
+                    expensive. The commercial prices of quality microscopes can range from $30 000 to $150 000 and are
+                    thus inaccessible to nonprofessional users. However, via the introduction of cheap tunnelling
+                    microscopes, the market is extended to applicants with limited budgets such as scientific
+                    communities in development countries, students in engineering and science educations as well as
+                    hobbyists.
+                </p>
+
+                <p>
+                    <a href="#fig1">Figure 1</a> illustrates the main components we used in the scanning tunneling
+                    microscope. An arduino
+                    microcontroller is used to control a piezoelectic crystal and a stepper motor. The crystal is used
+                    to actuate an atomically sharp probe over the sample specimen and the stepper motor is connected to
+                    a micrometer screw gauge, allowing fine and course adjustments. We have connected four digital to
+                    analog converters to the arduino to allow the crystal to be controlled with high precision. By
+                    approaching the sample into a nanometer proximity to the probe and applying a bias, a tunneling
+                    current can be established. Consequently, the probe can be scanned over the surface, yielding an
+                    image corresponding to the surfaces local electronic environment. High resolutions can be obtained
+                    via this technique due to the tunneling currents exponential dependence with respect to the probe to
+                    surface distance. In practice however, this puts high demands on the equipment used. The setup has
+                    to be isolated from ambient vibrations and very small probe adjustments in the order of Ångström has
+                    to be made in order to fully take advantage of the tunneling phenomena.
+                </p>
+
+                <figure class="centerimage" id="fig1">
+                    <img src="images/stm_schematic.jpg" class="img-responsive" style="width:450px;height:auto;">
+                    <figcaption><i>Figure 1: main components in the scanning tunneling microscope</i></figcaption>
+                    <br>
+                </figure>
+            </div>
+
+            <!--<div class="well" id="approach">-->
+                <!--<h3><b>Coarse and fine approach</b></h3>-->
+                <!--<p> In order to establish a tunneling current, the sample has to be approached into a nanometer-->
+                    <!--proximity-->
+                    <!--to the probe. A reliable way of approaching the specimen is thus the first step that must be-->
+                    <!--overcome in order to achieve a functioning microscope. Since most piezoelectric elements only can-->
+                    <!--extend up to the order of micrometers, a coarse approach is needed to bring the sample into such a-->
+                    <!--distance that the piezoelectic element can extend and find a suitable tunneling current (fine adjustment).-->
+
+                    <!--Behövs ej?-->
+                <!--</p>-->
+            <!--</div>-->
+
+            <div class="well" id="references">
+                <h3><b>References</b></h3>
+                <p href="1">[1] H. Rohrer, G. Binning. “Scanning Tunneling Microscopy – From Birth to Adolescence” Nobel
+                    lecture, December 8, <b>1986</b></p>
+                <p href="2">[2] B. Voigtländer. “Scanning Probe Microscopy – Atomic Force Microscopy and Scanning
+                    Tunneling Microscopy”. ISBN 978-3-662-45240-0, <b>2015</b>. </p>
+
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas">
+            <div class="list-group hidden-xs">
+                <a href="#" class="list-group-item active">Contents</a>
+                <a href="#introduction" class="list-group-item">Introduction</a>
+                <a href="#references" class="list-group-item">References</a>
+                <!--<a href="#" class="list-group-item">Amplification system</a>-->
+                <!--<a href="#" class="list-group-item">Bias setup</a>-->
+                <!--<a href="#references" class="list-group-item">References</a>-->
+            </div>
+
+            <div class="well hidden-xs">
+                <p><b>Contact us</b>:<br>
+                    Sölvegatan 14<br>
+                    SE-223 63 Lund <br>
+                    Sweden<br>
+                    tna13asa@student.lu.se</p>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <footer>
+        <p>&copy; 2016 swagNano, Inc.</p>
+    </footer>
+</div>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>

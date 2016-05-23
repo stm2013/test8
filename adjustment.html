@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vibrations | swagNano</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="stiling.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.min.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <!-- Logo -->
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="index.html">swagNano</a>
+        </div>
+
+        <!-- Menu -->
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Home</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="pronano.html">proNano</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Technology <span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="overview.html">Overview</a></li>
+                        <li><a href="electronics.html">Electronics</a></li>
+                        <li><a href="scan_head.html">Scan head</a></li>
+                        <li><a href="vibration.html">Vibration isolation</a></li>
+                        <li><a href="adjustment.html">Coarse approach</a></li>
+                        <li><a href="software.html">Software</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="support.html">Support</a></li> <!--  https://www.nanosurf.com/en/support -->
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 col-sm-9">
+            <div class="dropdown pull-right visible-xs">
+                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+                    Contents
+                    <span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#coarse">Coarse approach</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#title2">title2</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#title3">title3</a></li>
+                    <!--<li role="presentation" class="divider"></li>-->
+                </ul>
+
+            </div>
+            <div class="jumbotron">
+                <h1>Course approach</h1>
+                <p> In order to establish a tunneling current, the sample has to be approached into a nanometer proximity to the probe. A reliable way of approaching the specimen without breaking the tip is thus the first step that must be overcome in order to achieve a functioning microscope </p>
+            </div>
+
+
+            <div class="well" id="coarse">
+                <h3><b>Coarse approach</b></h3>
+                <p>One of the most important aspects of an STM is the coarse approach, i.e. how the microscope closes the relative long distance between the sample and the tip after the sample is placed in the microscope in order to achieve a tunneling current.</p>
+                <p>One option for coarse approach that had us intrigued early on was what is called the stick-slip technique. Stick-slip is most easily explained with an example: image that you have a piece of paper. In the middle of that paper you place something rather heavy, say for instance your wallet. If you then push the paper ahead of you slowly, the wallet will, due to friction, stay put on the same position on paper. But if you then pull the paper back quickly, the force will overcome the friction and the wallet will have moved from its original position! This technique can be used to move either the sample or the tip with, in theory, very high precision. This is done by applying a sawtooth-shaped voltage signal to a piezo buzzer, which then will expand slowly and retract quickly.. Blablabla, mer här
+</p>
+                <p>Following the rejection of the stick-slip motor, we chose a more conventional technique for the coarse approach: a stepper motor.</p>
+            </div>
+
+            <div class="well" id="title2">
+                <h3><b>title</b></h3>
+                <p>text</p>
+            </div>
+
+            <div class="well" id="title3">
+                <h3><b>title</b></h3>
+                <p>text</p>
+            </div>
+        </div>
+
+
+        <!-- sidebar -->
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas">
+            <div class="list-group hidden-xs">
+                <a href="#" class="list-group-item active">Contents</a>
+                <a href="#coarse" class="list-group-item">Coarse approach</a>
+                <a href="#title2" class="list-group-item">title2</a>
+                <a href="#title3" class="list-group-item">title3</a>
+            </div>
+            <div class="well hidden-xs">
+                <p><b>Contact us</b>:<br>
+                    Sölvegatan 14<br>
+                    SE-223 63 Lund <br>
+                    Sweden<br>
+                    tna13asa@student.lu.se</p>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+
+    <footer>
+        <p>&copy; 2016 swagNano, Inc.</p>
+    </footer>
+</div>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>

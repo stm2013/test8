@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vibrations | swagNano</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="stiling.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.min.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <!-- Logo -->
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="index.html">swagNano</a>
+        </div>
+
+        <!-- Menu -->
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Home</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="pronano.html">proNano</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Technology <span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="overview.html">Overview</a></li>
+                        <li><a href="electronics.html">Electronics</a></li>
+                        <li><a href="scan_head.html">Scan head</a></li>
+                        <li><a href="vibration.html">Vibration isolation</a></li>
+                        <li><a href="adjustment.html">Coarse approach</a></li>
+                        <li><a href="software.html">Software</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="support.html">Support</a></li> <!--  https://www.nanosurf.com/en/support -->
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 col-sm-9">
+            <div class="dropdown pull-right visible-xs">
+                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+                    Contents
+                    <span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#theory">Theory</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#implementation">Implementation</a></li>
+
+                    <!--<li role="presentation" class="divider"></li>-->
+                </ul>
+
+            </div>
+            <div class="jumbotron">
+                <h1>Vibration isolation</h1>
+                <p> In scanning tunneling microscopy the choice of material is highly important. Floor vibrations with
+                    amplitudes up to 100 nanometers must be suppressed in order to allow an atomic resolution of 0.1
+                    nanometers. This puts severe limitations on the materials that can be used as the resonant frequency
+                    of the microscope is one of the factors that prevents imaging under ambient conditions. </p>
+            </div>
+
+            <div class="well" id="theory">
+                <h3><b>Theory</b></h3>
+                <p> As with regular photography, it is important to ensure that the subject and the camera are
+                    stationary
+                    during imaging. To remove the influence of ambient vibrations, you must tailor the resonance
+                    frequencies to remove as many frequencies as possible. The tip itself will always be a thin metal
+                    wire, and as such, will have a high resonance frequency. Low frequency vibrations will have little
+                    effect in disturbing the imaging, so long as the sample doesn’t move. High frequencies, however,
+                    will need to be prevented from reaching the tip and sample. By making a base with a low resonance
+                    frequency, this can be achieved.
+                    An explanation of how and why this works is easiest to get by studying transfer functions. The
+                    transfer function shows the response of a system to various frequencies. A system with high
+                    resonance frequency reduces the amplitude of low frequency vibrations, see <a href="#fig1">figure
+                        1</a>, whereas a low
+                    resonance frequency dampens high frequencies, see <a href="#fig2">figure 2</a>. By putting together
+                    two systems with different
+                    resonance frequencies, their transfer functions are multiplied. A HF system combined with a LF
+                    system, with their respective resonance frequencies far from each other, will create a compound
+                    system which dampens almost all frequencies.
+                </p>
+                <figure class="centerimage" id="fig1">
+                    <img src="http://www.swarthmore.edu/NatSci/echeeve1/Ref/E72WhaKnow/HiPass2Bode.gif"
+                         class="centerfigure img-responsive">
+                    <figcaption class="centertext"><i>Figure 1: A bode plot for a system with high resonance
+                        frequency</i></figcaption>
+                    <br>
+                </figure>
+
+                <figure class="centerimage" id="fig2">
+                    <img src="http://i.stack.imgur.com/FRJc4.jpg" class="centerfigure img-responsive">
+                    <figcaption class="centertext"><i>Figure 2: A bode plot for a system with lowresonance
+                        frequency. </i></figcaption>
+                </figure>
+
+            </div>
+
+            <div class="well" id="implementation">
+                <h3><b>Implementation</b></h3>
+                <p> The choice of aluminium as material for the body worked in favour of the vibration dampening, as it
+                    has a high resonance frequency. The base, which is supposed to remove high frequencies, is in our
+                    design split into three parts. First, towards the table, we have four feet made out of tennis balls
+                    cut open. On top of these rested a solid slab of concrete, of about 3 kg. Lastly, between the slab
+                    and the microscope body, we placed a silicone mat. We made our own mat from silicone glue squeezed
+                    into a cardboard box. After hardening, it became rather rigid, and it may be better to buy an
+                    already made mat. A soft mouse mat should also be a good choice.
+                    This combination ensured that most of the disturbing vibrations were filtered out, which means that
+                    a high resolution image is at least possible
+                </p>
+            </div>
+        </div>
+
+
+        <!-- sidebar -->
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas">
+            <div class="list-group hidden-xs">
+                <a href="#" class="list-group-item active">Contents</a>
+                <a href="#theory" class="list-group-item">Theory</a>
+                <a href="#implementation" class="list-group-item">Implementation</a>
+            </div>
+            <div class="well hidden-xs">
+                <p><b>Contact us</b>:<br>
+                    Sölvegatan 14<br>
+                    SE-223 63 Lund <br>
+                    Sweden<br>
+                    tna13asa@student.lu.se</p>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <footer>
+        <p>&copy; 2016 swagNano, Inc.</p>
+    </footer>
+</div>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
