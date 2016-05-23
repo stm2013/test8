@@ -73,31 +73,33 @@
                     Contents
                     <span class="caret"></span></button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#coarse">title1</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">title2</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">title3</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#tip">The tip</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#holder">Tip holder</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#scanner">Scanner</a></li>
                     <!--<li role="presentation" class="divider"></li>-->
                 </ul>
 
             </div>
             <div class="jumbotron">
                 <h1>Scan head</h1>
-                <p>Introductory text.. </p>
+                <p>In order to get an image of the surface of the material, the probe must be able to scan across the area of interest. Thus, a system to keep the tip in place and allow it to travel over the surface need to be designed, with attention to both high spatial resolution and reliability. It also needs to allow for easily changing the tip and applying a voltage bias.</p>
             </div>
             
-            <div class="well">
-                <h3><b>title 1</b></h3>
-                <p>text1<br><br><br><br><br></p>
+            <div class="well" id="tip">
+                <h3><b>The tip</b></h3>
+                <p>The tip is the most critical part to receiving a correct image. Unless the tip is a perfect single-atom point, the image will be slightly distorted. The tips for commercial STM:s are normally made of tungsten, etched into an extremely fine point. Tungsten, however, does not work well in normal atmospheric conditions, due to forming an oxide layer, preventing current from flowing from the tip. For our application, without ultra high vacuum, and where absolute correctness is not necessary, it is possible to get an adequate tip by taking an indium-platinum wire and simply cutting it at an angle, giving a sharp tip.</p>
             </div>
             
-            <div class="well">
-                <h3><b>title 1</b></h3>
-                <p>text1<br><br><br><br><br></p>
+            <div class="well" id="holder">
+                <h3><b>Tip holder</b></h3>
+                <p>Since the tip is so thin, and needs to be connected to a voltage source, the optimal solution is to have a small metal tube, with an inner diameter slightly larger than the wire diameter. This will allow wires to be soldered to the outside of the tube, and the tip will be able to stay in the tube if you simply make a small bend on the part of the wire inside the tube.</p>
+                <p>We were able to get our hands on used tip holders from regular STM:s. Since they get swapped regularly, and discarded as metal scrap, it is possible to ask staff if you can have a couple.</p>
             </div>
             
-            <div class="well">
-                <h3><b>title 1</b></h3>
-                <p>text1<br><br><br><br><br></p>
+            <div class="well" id="scanner">
+                <h3><b>Scanner</b></h3>
+                <p>The last part of the scan head is the actual scanner. Here it is necessary to have easily controllable parameters to get to specified points above the sample. In commercial STM:s, this part usually consist of a piezoelectric tube split into four parts. Applying voltage to one or two quadrants will make it bend such that the biased quadrants get closer to the middle. This is however an expensive part, and, keeping to the theme of cost-efficiency, we tried a different approach. We bought some simple disk-shaped piezo buzzers (Bild?) and, with a knife, divided the crystal connections into four parts.This granted us the same range of movements as a larger and more expensive tube scanner, at the cost of shorter maximum expansion. On the other hand, these small piezos require much less voltage to expand, in single volts rather than the hundreds of volt required by tube scanners.</p>
+                <p>As a rule of thumb, these disk piezos expand almost linearly with voltage, and five volts result in one micrometre of expansion.</p>
             </div>
         </div>
 
@@ -105,9 +107,9 @@
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas">
             <div class="list-group hidden-xs">
                 <a href="#" class="list-group-item active">Contents</a>
-                <a href="#coarse" class="list-group-item">title1</a>
-                <a href="#" class="list-group-item">title2</a>
-                <a href="#" class="list-group-item">title3</a>
+                <a href="#tip" class="list-group-item">The tip</a>
+                <a href="#holder" class="list-group-item">Tip holder</a>
+                <a href="#scanner" class="list-group-item">Scanner</a>
             </div>
             <div class="well hidden-xs">
                 <p><b>Contact us</b>:<br>
