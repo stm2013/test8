@@ -98,12 +98,12 @@
                     ground (in this case, the body of the microscope). By applying voltages to the quadrants, we can
                     scan the tip. The more accurately we can apply a voltage, the higher our resolution will be. In his
                     home-built STM, Dan Berard claims the to achieve atomic resolution, the DACs used have to have a
-                    resolution of at least 20 bit (källa). Therefore, we used four Texas Instrument DAC1220E (länk till
-                    datablad), a 20 bit, high precision DAC. The DACs are by far the most expensive part of the
+                    resolution of at least 20 bit. Therefore, we used four <a href="http://www.ti.com/lit/ds/symlink/dac1220.pdf">Texas Instrument DAC1220E</a> 
+                    , a 20 bit, high precision DAC. The DACs are by far the most expensive part of the
                     microscope. At first, we tried to use a breadboard to connect the DACs. However, the output signal
                     was very unstable and noisy, probably due to all the stray capacitance in the breadboard, which
-                    causes more capacitive coupling. Because of this, we had to design and order a printed circuit board
-                    (PCB). (länk till filerna). The PCB was designed in the open-source program KiCAD and followed the
+                    causes more capacitive coupling. Because of this, we had to design and order a <a href="https://oshpark.com/shared_projects/XQKkLpe6">printed circuit board</a>
+                    (PCB). The PCB was designed in the open-source program KiCAD and followed the
                     design recommendations found in the DAC’s datasheet. The DACs were controlled by the Arduino using
                     what is called Serial Peripheral Interface, or SPI for short. The PCB with and without components
                     can be seen in <a href="#fig1">figure 1</a>.
